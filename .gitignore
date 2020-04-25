@@ -115,4 +115,7 @@ dist
 .pnp.*
 
 
-api.http
+/client/.env.local
+/client/.env.development.Local
+/client/.env.test.Local
+/client/.env.production.local
