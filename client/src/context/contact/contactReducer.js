@@ -51,12 +51,6 @@ export default (state, action) => {
 				}),
 			};
 
-		case CLEAR_CURRENT:
-			return {
-				...state,
-				filtered: null,
-			};
-
 		case CLEAR_FILTER:
 			return {
 				...state,

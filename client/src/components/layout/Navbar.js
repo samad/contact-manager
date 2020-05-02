@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 function Navbar({ title, icon }) {
+	const authContext = useContext(AuthContext);
+
+	const { isAuthenticated, logout, user } = authContext;
+
+	const onLogout = () => {
+		logout();
+	};
+
+	const authLinks = (
+		<Fragment>
+			<li className='nav-item'>
+				<span className='nav-link text-light'>Hello, {user && user.name}</span>
+			</li>
+			<li className='nav-item'>
+				<a href='#!' className='nav-link text-light' onClick={onLogout}>
+					<i className='fas fa-sign-out-alt'></i> <span className='hide-sm'>Logout</span>
+				</a>
+			</li>
+		</Fragment>
+	);
+
+	const guestLinks = (
+		<Fragment>
+			<li className='nav-item'>
+				<Link className='nav-link text-light' to='/register'>
+					Register
+				</Link>
+			</li>
+			<li className='nav-item'>
+				<Link className='nav-link text-light' to='/login'>
+					Login
+				</Link>
+			</li>
+		</Fragment>
+	);
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-light bg-primary'>
 			<a className='navbar-brand text-light' href='/'>
@@ -20,11 +57,7 @@ function Navbar({ title, icon }) {
 			</button>
 			<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 				<ul className='navbar-nav ml-auto'>
-					<li className='nav-item'>
-						<Link className='nav-link text-light' to='/'>
-							Home<span className='sr-only'>(current)</span>
-						</Link>
-					</li>
+					{isAuthenticated ? authLinks : guestLinks}
 					<li className='nav-item'>
 						<Link className='nav-link text-light' to='/about'>
 							About
