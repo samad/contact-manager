@@ -48,6 +48,7 @@ function ContactForm() {
 				phone: '',
 				type: 'personal',
 			});
+			clearCurrent();
 		}
 	};
 
