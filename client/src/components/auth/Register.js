@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 
@@ -94,6 +95,9 @@ function Register(props) {
 						required
 					/>
 				</div>
+				<p className='lead'>
+					Already have an account! <Link to='/login'>Login Now</Link>
+				</p>
 				<input type='submit' value='Register' className='btn btn-primary btn-block' />
 			</form>
 		</div>
