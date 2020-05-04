@@ -85,7 +85,7 @@ function Register(props) {
 				<div className='form-group'>
 					<label htmlFor='password2'>Confirm Password</label>
 					<input
-						type='password'
+						type='text'
 						name='password2'
 						value={password2}
 						className='form-control'
