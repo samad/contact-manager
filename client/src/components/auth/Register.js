@@ -21,10 +21,10 @@ function Register(props) {
 	}, [error, isAuthenticated, props.history, clearErrors, setAlert]);
 
 	const [user, setUser] = useState({
-		name: 'Charlie Puth',
-		email: 'charlie@gmail.com',
-		password: 'charliemeranaam',
-		password2: 'charliemeranaam',
+		name: '',
+		email: '',
+		password: '',
+		password2: '',
 	});
 
 	const { name, email, password, password2 } = user;

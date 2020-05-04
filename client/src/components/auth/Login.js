@@ -21,8 +21,8 @@ function Login(props) {
 	}, [error, isAuthenticated, props.history, clearErrors, setAlert]);
 
 	const [user, setUser] = useState({
-		email: 'charlie@gmail.com',
-		password: 'charliemeranaam',
+		email: '',
+		password: '',
 	});
 
 	const { email, password } = user;
