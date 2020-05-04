@@ -8,7 +8,6 @@ import {
 	CLEAR_FILTER,
 	CONTACT_ERROR,
 	GET_CONTACTS,
-	CLEAR_ERRORS,
 	CLEAR_CONTACTS,
 } from '../types';
 

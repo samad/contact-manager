@@ -11,8 +11,7 @@ function Contacts() {
 
 	useEffect(() => {
 		getContacts();
-		// es-lint-disable-next-line
-	}, []);
+	}, [getContacts]);
 
 	if (contacts !== null && contacts.length === 0 && !loading) {
 		return <h4>Please add a contact</h4>;
