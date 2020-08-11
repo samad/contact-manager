@@ -1,10 +1,11 @@
-import React, { useContext, Fragment } from 'react';
+import React, { useContext, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
 
 function Navbar({ title, icon }) {
+	const [collapsed, setCollapsed] = useState(false);
 	const authContext = useContext(AuthContext);
 	const contactContext = useContext(ContactContext);
 
@@ -23,7 +24,8 @@ function Navbar({ title, icon }) {
 			</li>
 			<li className='nav-item'>
 				<a href='#!' className='nav-link text-light' onClick={onLogout}>
-					<i className='fas fa-sign-out-alt'></i> <span className='hide-sm'>Logout</span>
+					<i className='fas fa-sign-out-alt'></i>{' '}
+					<span className='hide-sm'>Logout</span>
 				</a>
 			</li>
 		</Fragment>
@@ -50,16 +52,21 @@ function Navbar({ title, icon }) {
 				<i className={icon}></i> {title}
 			</a>
 			<button
-				className='navbar-toggler'
+				className={`navbar-toggler ${collapsed ? '' : 'collapsed'}`}
 				type='button'
 				data-toggle='collapse'
 				data-target='#navbarSupportedContent'
 				aria-controls='navbarSupportedContent'
-				aria-expanded='false'
-				aria-label='Toggle navigation'>
+				aria-expanded={collapsed ? 'true' : 'false'}
+				aria-label='Toggle navigation'
+				onClick={() => setCollapsed((prevState) => !prevState)}>
 				<span className='navbar-toggler-icon'></span>
 			</button>
-			<div className='collapse navbar-collapse' id='navbarSupportedContent'>
+			<div
+				className={`navbar-collapse ${
+					collapsed ? 'collapse' : 'collapse show'
+				}`}
+				id='navbarSupportedContent'>
 				<ul className='navbar-nav ml-auto'>
 					{isAuthenticated ? authLinks : guestLinks}
 					<li className='nav-item'>
