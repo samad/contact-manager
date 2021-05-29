@@ -119,3 +119,7 @@ dist
 /client/.env.development.Local
 /client/.env.test.Local
 /client/.env.production.local
+/client/build
+
+/config/production.json
+/config/default.json
