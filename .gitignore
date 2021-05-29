@@ -123,3 +123,4 @@ dist
 
 /config/production.json
 /config/default.json
+.vscode
