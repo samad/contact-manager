@@ -48,35 +48,37 @@ function Navbar({ title, icon }) {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-      <a className="navbar-brand text-light" href="/">
-        <i className={icon}></i> {title}
-      </a>
-      <button
-        className={`navbar-toggler ${collapsed ? "" : "collapsed"}`}
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded={collapsed ? "true" : "false"}
-        aria-label="Toggle navigation"
-        onClick={() => setCollapsed((prevState) => !prevState)}
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div
-        className={`navbar-collapse ${
-          collapsed ? "collapse" : "collapse show"
-        }`}
-        id="navbarSupportedContent"
-      >
-        <ul className="navbar-nav ml-auto">
-          {isAuthenticated ? authLinks : guestLinks}
-          <li className="nav-item">
-            <Link className="nav-link text-light" to="/about">
-              About
-            </Link>
-          </li>
-        </ul>
+      <div className="container-fluid">
+        <a className="navbar-brand text-light" href="/">
+          <i className={icon}></i> {title}
+        </a>
+        <button
+          className={`navbar-toggler ${collapsed ? "" : "collapsed"}`}
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-content"
+          aria-controls="navbar-content"
+          aria-expanded={collapsed ? "true" : "false"}
+          aria-label="Toggle navigation"
+          onClick={() => setCollapsed((prevState) => !prevState)}
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div
+          className={`navbar-collapse ${
+            collapsed ? "collapse" : "collapse show"
+          }`}
+          id="navbar-content"
+        >
+          <ul className="navbar-nav ms-auto">
+            {isAuthenticated ? authLinks : guestLinks}
+            <li className="nav-item">
+              <Link className="nav-link text-light" to="/about">
+                About
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
