@@ -1,21 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+
 $primary: #2196f3;
 $secondary: #607d8b;
 $info: #00bcd4;
 $danger: #f44336;
 
-@import '~bootstrap';
-
 .item-enter {
-	opacity: 0;
+  opacity: 0;
 }
 .item-enter-active {
-	opacity: 1;
-	transition: opacity 1000ms ease-in;
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
 }
 .item-exit {
-	opacity: 1;
+  opacity: 1;
 }
 .item-exit-active {
-	opacity: 0;
-	transition: opacity 1000ms ease-in;
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
 }
